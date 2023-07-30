@@ -1,0 +1,77 @@
+#waiting_area{
+    width: 60vw;
+    height:40vh;
+    background-color: red;
+    left:50%;
+    top:50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: space-around;
+    visibility: hidden;
+    text-align: center;
+    
+}
+#room_id{
+  position: absolute;
+  margin-top: 2%;
+  font-size: 2em;
+  background-color: yellow;
+}
+.player_card{
+    margin-top: 7%;
+    background-color: blue;
+    width: 22%;
+    height: 50%;
+    border:solid black 2px;
+    border-radius: 15px;
+    font-size: 3em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 1s;
+    flex-wrap: wrap;
+}
+.player_card:hover{
+    scale:1.1;
+    transition: 1s;
+}
+#btn_lancer{
+  width: 20%;
+  height: 20%;
+  font-size: 3em;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  transition: 1s;
+}
+#btn_lancer:hover{
+  scale: 1.1;
+  transition: 1s;
+}
+.lds-dual-ring {
+    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
