@@ -9,6 +9,8 @@ function createLaunchGameBtn(){
     btn.innerText="lancer";
     return btn;
 }
-function createGameCase
+function createGameCase(){
+    console.log("dqz");
+}
 
 export{flipCard,createLaunchGameBtn};

@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="form.css">
-    <link rel="stylesheet" href="player_card.css">
-    <link rel="stylesheet" href="game.css">
-    
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/form.css">
+    <link rel="stylesheet" href="styles/player_card.css">
+    <link rel="stylesheet" href="styles/game.css">
+
 </head>
+
 <body>
 
-    <div id = "accueil_card" >
-        <div id = "front">
+    <div id="accueil_card">
+        <div id="front">
             <h1> vive le capitale</h1>
             <img src="img/pepe_accueil.png" alt="" id="accueil_img">
-            <button id ="btn_join_room">rejoindre</button>
-            <button id ="btn_create_room">crée</button>
+            <button id="btn_join_room">rejoindre</button>
+            <button id="btn_create_room">crée</button>
         </div>
-        <div id = "back_form">
+        <div id="back_form">
             <h1>back</h1>
         </div>
     </div>
-    
+
     <div id="waiting_area">
         <h1 id="room_id"></h1>
         <div class="player_card , lds-dual-ring"></div>
@@ -31,15 +33,21 @@
         <div class="player_card , lds-dual-ring"></div>
         <div class="player_card , lds-dual-ring"></div>
     </div>
-    <div id = "game_board_container">
-        <div id = game_board></div>
+    <div id="game_board_container">
+        <div id="game_board">
+            <div id="cote_haut"></div>
+            <div id="cote_droit"></div>
+            <div id="cote_gauche"></div>
+            <div id="cote_bas"></div>
+        </div>
     </div>
-    
-    <script src="serv.js" type="module"></script>
-    <script src="form.js" type="module"></script>
-    <script src="index.js" type="module"></script>
-    
-    
-    
+
+    <script src="scripts/serv.js" type="module"></script>
+    <script src="scripts/form.js" type="module"></script>
+    <script src="scripts/index.js" type="module"></script>
+
+
+
 </body>
+
 </html>
