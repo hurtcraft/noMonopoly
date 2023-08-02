@@ -1,0 +1,137 @@
+[
+    {
+        "nom":"Prison",
+        "type":"malus",
+        "prix":null,
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom":"B0-15",
+        "type":"achetable",
+        "proprietaire":null,
+        "prix": 120,
+        "loyer":{
+            "seul":8,
+            "monopole":16,
+            "maison1":40,
+            "maison2":100,
+            "maison3":300,
+            "maison4":450,
+            "hotel":600
+        },
+        "hypotheque":60,
+        "coutMaison":50,
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom":"B0-14",
+        "type":"achetable",
+        "proprietaire":null,
+        "prix": 100,
+        "loyer":{
+            "seul":6,
+            "monopole":12,
+            "maison1":30,
+            "maison2":90,
+            "maison3":270,
+            "maison4":400,
+            "hotel":550
+        },
+        "hypotheque":60,
+        "coutMaison":50,
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom":"CHANCE",
+        "type":"Chance"
+
+    },
+    {
+        "nom":"B0-13",
+        "type":"achetable",
+        "proprietaire":null,
+        "prix": 100,
+        "loyer":{
+            "seul":6,
+            "monopole":12,
+            "maison1":30,
+            "maison2":90,
+            "maison3":270,
+            "maison4":400,
+            "hotel":550
+        },
+        "hypotheque":60,
+        "coutMaison":50,
+        "couleur":"#62D2E8" 
+    },
+    
+    {
+        "nom":"Cantine",
+        "type":"gare",
+        "proprietaire":null,
+        "prix": 200,
+        "loyer":{
+            "seul":25,
+            "gare2":50,
+            "gare3":100,
+            "gare4":200
+        },
+        "hypotheque":100,
+        
+        "couleur":"#2B2B2B" 
+    },
+    {
+        "nom":"Taxe Photocopieuse",
+        "type":"taxe",
+        "prix":200,
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom":"Accueil Blériot",
+        "type":"achetable",
+        "proprietaire":null,
+        "prix": 60,
+        "loyer":{
+            "seul":4,
+            "monopole":8,
+            "maison1":20,
+            "maison2":60,
+            "maison3":180,
+            "maison4":320,
+            "hotel":450
+        },
+        "hypotheque":30,
+        "coutMaison":50,
+        "couleur":"#DA774A" 
+    },
+    {
+        "nom":"Caise Communauté",
+        "type":"CaisseCommu",
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom":"Accueil Blériot",
+        "type":"achetable",
+        "proprietaire":null,
+        "prix": 60,
+        "loyer":{
+            "seul":2,
+            "monopole":4,
+            "maison1":10,
+            "maison2":30,
+            "maison3":90,
+            "maison4":160,
+            "hotel":250
+        },
+        "hypotheque":30,
+        "coutMaison":50,
+        "couleur":"#DA774A" 
+    },
+    {
+        "nom":"Depart",
+        "type":"depart",
+        "description":"toucher 200e de Bourse",
+        "couleur":"#FFFFFF"
+    }
+
+]

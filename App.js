@@ -3,12 +3,20 @@ const app = express();
 const serv = require("http").createServer(app);
 const io = require("socket.io")(serv);
 const PORT = 3000;
+const gameData= require("./game.js");
+console.log(gameData.cote_bas);
+//zone de test
 
+
+
+//fin zone de test
 app.use(express.static('public'));
 
 app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/public/index.html");
 })
+
+
 io.on("connection", (socket) => {
 	console.log("connection de " + socket.id);
 	let room=null;
@@ -62,7 +70,7 @@ io.on("connection", (socket) => {
 	})
 	socket.on("startGame",()=>{
 		console.log("le jeu commence avec : "+room.players);
-		io.in(room.id).emit("initGame");
+		io.in(room.id).emit("initGame",gameData);
 	})
 
 });

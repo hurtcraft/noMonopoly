@@ -1,4 +1,4 @@
-
+import {fillCoteBas} from "./helper.js";
 const socketScript = document.createElement("script");
 socketScript.src = "/socket.io/socket.io.js";
 document.body.appendChild(socketScript);
@@ -6,12 +6,15 @@ let socket = null;
 
 let Players=[];
 socketScript.onload = () => {
+    
     socket = io();
     let waitingArea=document.getElementById("waiting_area");
     let accueilCard=document.getElementById("accueil_card");
     let lstPlayersCard=document.getElementsByClassName("player_card");
     let roomIDContainer=document.getElementById("room_id");
     let board=document.getElementById("game_board");
+
+    
     socket.on("sendRoomID",(receveidRoomID)=>{
         console.log(receveidRoomID);
         roomIDContainer.innerText="Room : "+receveidRoomID;
@@ -28,9 +31,11 @@ socketScript.onload = () => {
         }
         
     })
-    socket.on("initGame",()=>{
+    socket.on("initGame",(gameData)=>{
         waitingArea.style.visibility="hidden";
         board.style.visibility="visible";
+        fillCoteBas(gameData.cote_bas);
+
     })
     
     socket.on("roomFull",(msg)=>{
