@@ -1,0 +1,149 @@
+[
+    {
+        "nom": "Pause Midi B2-20",
+        "type": "nothing",
+        "prix": null
+    },
+    {
+        "nom": "B3-17",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 220,
+        "loyer": {
+            "seul": 18,
+            "monopole": 36,
+            "maison1": 90,
+            "maison2": 250,
+            "maison3": 700,
+            "maison4": 875,
+            "hotel": 1050
+        },
+        "hypotheque": 110,
+        "coutMaison": 150,
+        "couleur": "#FF1C1C"
+    },
+    {
+        "nom":"CHANCE",
+        "type":"Chance"
+
+    },
+    {
+        "nom": "B3-18",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 220,
+        "loyer": {
+            "seul": 18,
+            "monopole": 36,
+            "maison1": 90,
+            "maison2": 250,
+            "maison3": 700,
+            "maison4": 875,
+            "hotel": 1050
+        },
+        "hypotheque": 110,
+        "coutMaison": 150,
+        "couleur": "#FF1C1C"
+    },
+    {
+        "nom": "B3-19",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 240,
+        "loyer": {
+            "seul": 20,
+            "monopole": 40,
+            "maison1": 100,
+            "maison2": 300,
+            "maison3": 750,
+            "maison4": 925,
+            "hotel": 1100
+        },
+        "hypotheque": 120,
+        "coutMaison": 150,
+        "couleur": "#FF1C1C"
+    },
+    {
+        "nom":"Franprix",
+        "type":"gare",
+        "proprietaire":null,
+        "prix": 200,
+        "loyer":{
+            "seul":25,
+            "gare2":50,
+            "gare3":100,
+            "gare4":200
+        },
+        "hypotheque":100,
+        "couleur":"#2B2B2B" 
+    },
+    {
+        "nom": "BU",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 260,
+        "loyer": {
+            "seul": 22,
+            "monopole": 44,
+            "maison1": 110,
+            "maison2": 330,
+            "maison3": 800,
+            "maison4": 975,
+            "hotel": 1150
+        },
+        "hypotheque": 130,
+        "coutMaison": 150,
+        "couleur": "#FFFC21"
+    },
+    {
+        "nom": "La Cour",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 260,
+        "loyer": {
+            "seul": 22,
+            "monopole": 44,
+            "maison1": 110,
+            "maison2": 330,
+            "maison3": 800,
+            "maison4": 975,
+            "hotel": 1150
+        },
+        "hypotheque": 130,
+        "coutMaison": 150,
+        "couleur": "#FFFC21"
+    },
+    {
+        "nom":"Taxe Boursier",
+        "type":"taxe",
+        "prix":150,
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom": "143",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 280,
+        "loyer": {
+            "seul": 24,
+            "monopole": 48,
+            "maison1": 120,
+            "maison2": 360,
+            "maison3": 850,
+            "maison4": 1025,
+            "hotel": 1200
+        },
+        "hypotheque": 140,
+        "coutMaison": 150,
+        "couleur": "#FFFC21"
+    },
+    {
+        "nom":"Prison",
+        "type":"Prison",
+        "prix":null,
+        "couleur":"#62D2E8" 
+    }
+
+
+
+]

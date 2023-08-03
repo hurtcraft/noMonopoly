@@ -33,8 +33,26 @@ function createGameCase(data){
 }
 function fillCoteBas(data){
     let cote_bas=document.getElementById("cote_bas");
+    fillContainer(cote_bas,data);
+}
+function fillCoteHaut(data){
+    let cote_haut=document.getElementById("cote_haut");
+    fillContainer(cote_haut,data);
+}
+function fillCoteDroit(data){
+    let cote_droit=document.getElementById("cote_droit");
+    fillContainer(cote_droit,data);
+}
+function fillCoteGauche(data){
+    let cote_gauche=document.getElementById("cote_gauche");
+    fillContainer(cote_gauche,data);
+}
+
+function fillContainer(container,data){
+    console.log(data);
     for(let i=0;i<data.length;i++){
-        cote_bas.appendChild(createGameCase(data[i]));
+        container.appendChild(createGameCase(data[i]));
     }
 }
-export{flipCard,createLaunchGameBtn,createGameCase,fillCoteBas};
+
+export{flipCard,createLaunchGameBtn,createGameCase,fillCoteBas,fillCoteHaut,fillCoteDroit,fillCoteGauche};

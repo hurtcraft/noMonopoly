@@ -1,7 +1,7 @@
 [
     {
         "nom":"Prison",
-        "type":"malus",
+        "type":"nothing",
         "prix":null,
         "couleur":"#62D2E8" 
     },
@@ -81,7 +81,7 @@
         "couleur":"#2B2B2B" 
     },
     {
-        "nom":"Taxe Photocopieuse",
+        "nom":"Taxe Imprimante",
         "type":"taxe",
         "prix":200,
         "couleur":"#62D2E8" 

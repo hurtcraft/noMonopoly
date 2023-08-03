@@ -1,0 +1,105 @@
+ [
+    {
+        "nom": "Secretariat",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 300,
+        "loyer": {
+            "seul": 26,
+            "monopole": 52,
+            "maison1": 130,
+            "maison2": 390,
+            "maison3": 900,
+            "maison4": 1100,
+            "hotel": 1275
+        },
+        "hypotheque": 150,
+        "coutMaison": 200,
+        "couleur": "#19CB00"
+    },
+    {
+        "nom": "Bureau Fessy",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 300,
+        "loyer": {
+            "seul": 26,
+            "monopole": 52,
+            "maison1": 130,
+            "maison2": 390,
+            "maison3": 900,
+            "maison4": 1100,
+            "hotel": 1275
+        },
+        "hypotheque": 150,
+        "coutMaison": 200,
+        "couleur": "#19CB00"
+    },
+    {
+        "nom":"Caise Communauté",
+        "type":"CaisseCommu",
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom":"Boulangerie",
+        "type":"gare",
+        "proprietaire":null,
+        "prix": 200,
+        "loyer":{
+            "seul":25,
+            "gare2":50,
+            "gare3":100,
+            "gare4":200
+        },
+        "hypotheque":100,
+        "couleur":"#2B2B2B" 
+    },
+    {
+        "nom":"CHANCE",
+        "type":"Chance"
+    },
+    {
+        "nom": "Amphi 1",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 350,
+        "loyer": {
+            "seul": 35,
+            "monopole": 70,
+            "maison1": 175,
+            "maison2": 500,
+            "maison3": 1100,
+            "maison4": 1300,
+            "hotel": 1500
+        },
+        "hypotheque": 175,
+        "coutMaison": 200,
+        "couleur": "#000BF9"
+    },
+    {
+        "nom":"Voyage au Ski",
+        "type":"taxe",
+        "prix":100,
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom": "Amphi 2",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 400,
+        "loyer": {
+            "seul": 50,
+            "monopole": 100,
+            "maison1": 200,
+            "maison2": 600,
+            "maison3": 1400,
+            "maison4": 1700,
+            "hotel": 2000
+        },
+        "hypotheque": 200,
+        "coutMaison": 200,
+        "couleur": "#000BF9"
+    }
+
+    
+ ]

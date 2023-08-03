@@ -3,8 +3,8 @@
 }
 
 #game_board {
-    width: max(60vw,850px);
-    height: max(95vh,850px);
+    width: max(60vw, 850px);
+    height: max(99vh, 850px);
     margin-top: -2vh;
     background-color: purple;
     visibility: hidden;
@@ -13,31 +13,114 @@
     left: 50%;
     transform: translate(-50%, -50%) rotateX(0deg);
     transform-style: preserve-3d;
+    font-size: xx-small;
 
 
 }
 
-#cote_droit,  #cote_gauche{
-    width: max(15%,150px);
+#cote_droit,
+#cote_gauche {
+    width: max(8vw, 147px);
     height: 70%;
-
+    background-color: yellow;
 }
-#cote_droit{
+
+#cote_droit {
     background-color: red;
     float: right;
 }
-#cote_gauche{
+
+#cote_gauche {
     background-color: blue;
 }
 
+#cote_droit,
+#cote_gauche {
+    display: flex;
+    flex-direction: column;
+}
 
-#cote_haut, #cote_bas{
+#cote_droit .case ,#cote_gauche .case {
+    border: solid black 1px;
+    width: 99%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+#cote_droit .case h2,#cote_droit .case h3{
+    transform: rotate(-90deg);
+    max-width: 80px; 
+    white-space: normal;
+    word-break: break-word;
+}
+
+#cote_gauche .case h2,#cote_gauche .case h3{
+    transform: rotate(90deg);
+    max-width: 80px; 
+    white-space: normal;
+    word-break: break-word;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#cote_haut,
+#cote_bas {
     width: 100%;
     height: 15%;
+    display: flex;
+    text-align: center;
 }
-#cote_haut{
+
+
+#cote_haut {
     background-color: yellow;
 }
-#cote_bas{
+
+#cote_bas {
     background-color: green;
+}
+
+#cote_bas .case,
+#cote_haut .case {
+    font-size: xx-small;
+    width: 8%;
+    border: solid black 1px;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#cote_bas .case h3,
+#cote_haut .case h3 {
+    background-color: aqua;
+}
+
+#cote_bas .case:first-child,
+#cote_bas .case:last-child,
+#cote_haut .case:first-child,
+#cote_haut .case:last-child {
+    padding: 0;
+    background-color: red;
+    width: inherit;
+    width: max(8vw, 150px);
 }

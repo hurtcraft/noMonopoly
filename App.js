@@ -4,7 +4,6 @@ const serv = require("http").createServer(app);
 const io = require("socket.io")(serv);
 const PORT = 3000;
 const gameData= require("./game.js");
-console.log(gameData.cote_bas);
 //zone de test
 
 

@@ -1,0 +1,118 @@
+[
+    {
+        "nom": "B2-13",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 200,
+        "loyer": {
+            "seul": 16,
+            "monopole": 32,
+            "maison1": 80,
+            "maison2": 220,
+            "maison3": 600,
+            "maison4": 800,
+            "hotel": 1000
+        },
+        "hypotheque": 100,
+        "coutMaison": 100,
+        "couleur": "#FE8B11"
+    },
+    {
+        "nom": "B2-12",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 180,
+        "loyer": {
+            "seul": 14,
+            "monopole":28,
+            "maison1": 70,
+            "maison2": 200,
+            "maison3": 550,
+            "maison4": 750,
+            "hotel": 950
+        },
+        "hypotheque": 99,
+        "coutMaison": 100,
+        "couleur": "#FE8B11"
+    },
+    {
+        "nom":"Caise Communauté",
+        "type":"CaisseCommu",
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom":"Cafeteria",
+        "type":"gare",
+        "proprietaire":null,
+        "prix": 200,
+        "loyer":{
+            "seul":25,
+            "gare2":50,
+            "gare3":100,
+            "gare4":200
+        },
+        "hypotheque":100,
+        "couleur":"#2B2B2B" 
+    },
+    {
+        "nom": "B1-4",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 160,
+        "loyer": {
+            "seul": 12,
+            "monopole":24,
+            "maison1": 60,
+            "maison2": 180,
+            "maison3": 500,
+            "maison4": 700,
+            "hotel": 900
+        },
+        "hypotheque": 80,
+        "coutMaison": 100,
+        "couleur": "#FA11FE"
+    },
+    {
+        "nom": "B1-3",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 140,
+        "loyer": {
+            "seul": 10,
+            "monopole":20,
+            "maison1": 50,
+            "maison2": 150,
+            "maison3": 450,
+            "maison4": 625,
+            "hotel": 750
+        },
+        "hypotheque": 70,
+        "coutMaison": 100,
+        "couleur": "#FA11FE"
+    },
+    {
+        "nom":"Taxe CVEC",
+        "type":"taxe",
+        "prix":150,
+        "couleur":"#62D2E8" 
+    },
+    {
+        "nom": "B1-é",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 140,
+        "loyer": {
+            "seul": 10,
+            "monopole":20,
+            "maison1": 50,
+            "maison2": 150,
+            "maison3": 450,
+            "maison4": 625,
+            "hotel": 750
+        },
+        "hypotheque": 70,
+        "coutMaison": 100,
+        "couleur": "#FA11FE"
+    }
+
+]

@@ -1,4 +1,4 @@
-import {fillCoteBas} from "./helper.js";
+import {fillCoteBas, fillCoteHaut,fillCoteDroit,fillCoteGauche} from "./helper.js";
 const socketScript = document.createElement("script");
 socketScript.src = "/socket.io/socket.io.js";
 document.body.appendChild(socketScript);
@@ -35,7 +35,9 @@ socketScript.onload = () => {
         waitingArea.style.visibility="hidden";
         board.style.visibility="visible";
         fillCoteBas(gameData.cote_bas);
-
+        fillCoteHaut(gameData.cote_haut);
+        fillCoteDroit(gameData.cote_droit);
+        fillCoteGauche(gameData.cote_gauche);
     })
     
     socket.on("roomFull",(msg)=>{
