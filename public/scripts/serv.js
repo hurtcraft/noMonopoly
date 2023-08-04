@@ -36,8 +36,8 @@ socketScript.onload = () => {
         board.style.visibility="visible";
         fillCoteBas(gameData.cote_bas);
         fillCoteHaut(gameData.cote_haut);
-        fillCoteDroit(gameData.cote_droit);
-        fillCoteGauche(gameData.cote_gauche);
+        //fillCoteDroit(gameData.cote_droit);
+        //fillCoteGauche(gameData.cote_gauche);
     })
     
     socket.on("roomFull",(msg)=>{

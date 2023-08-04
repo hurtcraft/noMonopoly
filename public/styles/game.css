@@ -20,17 +20,17 @@
 
 #cote_droit,
 #cote_gauche {
-    width: max(8vw, 147px);
-    height: 70%;
-    background-color: yellow;
+    width: 10%;
+    height: 15%;
+    flex-direction: column;
 }
 
 #cote_droit {
     background-color: red;
-    float: right;
 }
 
 #cote_gauche {
+    left: 0;
     background-color: blue;
 }
 
@@ -97,6 +97,8 @@
 
 #cote_bas {
     background-color: green;
+    position: absolute;
+    bottom: 0;
 }
 
 #cote_bas .case,
