@@ -1,4 +1,4 @@
-import {flipCard,createLaunchGameBtn} from "./helper.js";
+import {flipCard,createLaunchGameBtn, CreatePawnsDiv} from "./helper.js";
 import { Player } from "./player.js";
 import { socket } from "./serv.js";
 let accueil_card=document.getElementById("accueil_card");
@@ -10,7 +10,6 @@ btnRetour.addEventListener("click",()=>{
     flipCard(accueil_card);
 })
 let player;
-
 
 function JoinRoomForm(){
     let form = document.createElement("form");
@@ -33,9 +32,9 @@ function JoinRoomForm(){
     btnJoin.innerText="rejoindre";
     btnJoin.type="submit";
 
-    //form.appendChild(btnRetour);
     form.appendChild(inputPseudo);
     form.appendChild(inputLienRoom);
+    form.appendChild(CreatePawnsDiv());
     form.appendChild(btnJoin);
 
     return form;
@@ -57,6 +56,7 @@ function CreateRoomForm(){
     btnCreate.type="submit"
 
     form.appendChild(inputPseudo);
+    form.appendChild(CreatePawnsDiv());
     form.appendChild(btnCreate);
 
     return form;
@@ -75,17 +75,38 @@ let JoinForm=JoinRoomForm();
 
 let btnJoinRoom=document.getElementById("btn_join_room");
 let btnCreateRoom=document.getElementById("btn_create_room");
-
-
-
+let pawnsImg;
+let currentPawn;
 let pseudo;
 let RoomID;
 
 btnJoinRoom.addEventListener("click",()=>{
     addForm(JoinForm);
+    pawnsImg=document.querySelectorAll(".imgPawn");
+    pawnsImg.forEach(p=>{
+        p.addEventListener("click",()=>{
+            currentPawn=p;
+            pawnsImg.forEach(otherP=>{
+                otherP.classList.remove("currentPawn");
+            })
+            currentPawn.classList.add("currentPawn");
+
+        })
+    })
+
 });
 btnCreateRoom.addEventListener("click",()=>{
     addForm(CreateForm);
+    pawnsImg=document.querySelectorAll(".imgPawn");
+    pawnsImg.forEach(p=>{
+        p.addEventListener("click",()=>{
+            pawnsImg.forEach(otherP=>{
+                otherP.classList.remove("currentPawn");
+            })
+            currentPawn=p;
+            currentPawn.classList.add("currentPawn");
+        })
+    })
 
 });
 let waitingArea=document.getElementById("waiting_area");
@@ -95,16 +116,16 @@ JoinForm.addEventListener("submit",(e)=>{
     pseudo=document.getElementById("pseudo").value;
     RoomID=document.getElementById("lienRoom").value;
     // verifier ROOMID
-    player=new Player(pseudo,false,parseInt(RoomID),socket.id);
+    player=new Player(pseudo,false,parseInt(RoomID),socket.id,currentPawn.src,0);
     socket.emit("PlayerData",player);
-
 })
 
 let btnLancer=createLaunchGameBtn();
+
 CreateForm.addEventListener("submit",(e)=>{
     e.preventDefault();
     pseudo=document.getElementById("pseudo").value;
-    player=new Player(pseudo,true,null,socket.id);
+    player=new Player(pseudo,true,null,socket.id,currentPawn.src,0);
     waitingArea.appendChild(btnLancer);
     socket.emit("PlayerData",player);
 })
@@ -113,3 +134,4 @@ btnLancer.addEventListener("click",()=>{
     socket.emit("startGame");
 })
 
+export{player}

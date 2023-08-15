@@ -20,29 +20,36 @@ io.on("connection", (socket) => {
 	console.log("connection de " + socket.id);
 	let room=null;
 	let roomID=null;
+	let playerTurn=0;
 	socket.on("PlayerData", (player) => {
 
 		
 		if (player.roomID == null) {
 			//si le joueur crée une room
 			roomID= parseInt(CreateRoomID());
-			room = CreateRoom(player,roomID);
+			room = CreateRoom(player,roomID,false);
+			player.roomID = roomID;
 			console.log(player);
-			console.log(roomID);
 			socket.emit("sendRoomID",roomID);
 			
 		}
 		else{
 			//si le joueur se connecte a une room
+			//partie a traiter encore
+			//cas encore à traiter
 			room=AllRooms.find(r=>r.id==player.roomID);
-			console.log(player.roomID);
-			console.log(room);
+
 			if(room==undefined){
+				socket.emit("roomNotFound","la room est inexistante");
 				return;
 			}
 			if(room.players.lenght>=4){
 				socket.emit("roomFull","la salle est remplie");
 				return;
+			}
+			if(room.alreadyStart){
+				socket.emit("roomAlreadyStart","la partie à deja commencer");
+				return
 			}
 			room.players.push(player);
 		}
@@ -68,14 +75,39 @@ io.on("connection", (socket) => {
 		})
 	})
 	socket.on("startGame",()=>{
-		console.log("le jeu commence avec : "+room.players);
-		io.in(room.id).emit("initGame",gameData);
+		io.in(room.id).emit("initGame",gameData,room.players);
+		//premier joueur qui joue, ps à corriger plus tard
+		io.in(room.id).emit("nextPlayer",room.players[0]);
+	})
+	socket.on("inGame",(player,randomInt)=>{
+		player.currentCaseIndex=(player.currentCaseIndex+randomInt)%40;
+		let p=room.players.find(elt=>elt.socketId==player.socketId);
+		p.currentCaseIndex=(p.currentCaseIndex+randomInt)%40;
+		io.in(room.id).emit("playerPlayed",p,randomInt);
+
+
 	})
 
+	socket.on("nextPlayer",()=>{
+		let p;
+		playerTurn=(playerTurn+1)%room.players.length;
+		p=room.players[playerTurn];
+		io.in(room.id).emit("nextPlayer",p);
+	})
+
+
 });
+
+
+
+
+
+
+
+
 let AllRooms = [];
-function CreateRoom(player, roomID) {
-	const room = { id: roomID, players: [] };
+function CreateRoom(player, roomID,alreadyStartBool) {
+	const room = { id: roomID, players: [],alreadyStart: alreadyStartBool };
 	player.roomID = room.id;
 	room.players.push(player);
 	AllRooms.push(room);
@@ -84,7 +116,8 @@ function CreateRoom(player, roomID) {
 }
 function CreateRoomID() {
 	let random="";
-	for(let i = 1 ; i<7;i++){
+	const nbChar=7;
+	for(let i = 1 ; i<nbChar;i++){
 		random+=Math.floor(Math.random()*9).toString();
 	}
 	

@@ -36,6 +36,24 @@
         "couleur": "#19CB00"
     },
     {
+        "nom": "Bureau Vice Directeur",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 320,
+        "loyer": {
+            "seul": 28,
+            "monopole": 56,
+            "maison1": 150,
+            "maison2": 450,
+            "maison3": 1000,
+            "maison4": 1200,
+            "hotel": 1400
+        },
+        "hypotheque": 160,
+        "coutMaison": 200,
+        "couleur": "#19CB00"
+    },
+    {
         "nom":"Caise Communauté",
         "type":"CaisseCommu",
         "couleur":"#62D2E8" 

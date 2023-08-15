@@ -2,57 +2,100 @@
 function flipCard(card) {
     card.classList.toggle('flipped');
 }
+function CreatePawnsDiv() {
+    const lstPawnName = ["Battleship.png", "Car.png", "Hat.png", "Iron.png", "Shoe.png", "Thimble.png"];
+    let dir = "../img/pions/";
+    let PawnsDiv = document.createElement("div");
+    PawnsDiv.id = "pawn_div";
+    for (let i = 0; i < lstPawnName.length; i++) {
+        PawnsDiv.appendChild(CreateImg(dir + lstPawnName[i]));
+    }
+    return PawnsDiv;
+}
+function CreateImg(url) {
+    const img = document.createElement("img");
+    img.src = url;
+    img.classList.add("imgPawn");
+    return img;
+}
 
-function createLaunchGameBtn(){
+function createLaunchGameBtn() {
     let btn = document.createElement("button");
-    btn.id="btn_lancer";
-    btn.innerText="lancer";
+    btn.id = "btn_lancer";
+    btn.innerText = "lancer";
     return btn;
 }
-function createGameCase(data){
-    //tile car le mot clé case est deja pris -___-
-    console.log(data);
-    let tile = document.createElement("div");
-    let colorHeader=  document.createElement("div");
-    let title=document.createElement("h2");
-    let price=document.createElement("h3");
-    let titleText=document.createTextNode(data.nom);
-    let priceText=document.createTextNode(data.prix);
+function createGameCase(data) {
 
+    //tile car le mot clé case est deja pris -___-
+    let tile = document.createElement("div");
+    let colorHeader = document.createElement("div");
+    let title = document.createElement("h2");
+    let price = document.createElement("h2");
+    let titleText = document.createTextNode(data.nom);
+
+
+    let priceText = document.createTextNode(data.prix);
+    if (data.prix === null || data.prix === undefined) {
+        priceText.textContent = "";
+
+    }
+
+    let pawnSpace = document.createElement("div");
+    pawnSpace.classList.add("pawn_space");
     title.appendChild(titleText);
     price.appendChild(priceText);
+    price.classList.add("prix");
     tile.classList.add("case");
     colorHeader.classList.add("caseHeader");
-    colorHeader.style.backgroundColor=data.couleur
-    
+    colorHeader.style.width = "100%";
+    colorHeader.style.height = "20%";
+    colorHeader.style.backgroundColor = data.couleur
+
     tile.appendChild(colorHeader);
     tile.appendChild(title);
+    tile.appendChild(pawnSpace);
     tile.appendChild(price);
-    console.log(tile);
+
+
     return tile;
 }
-function fillCoteBas(data){
-    let cote_bas=document.getElementById("cote_bas");
-    fillContainer(cote_bas,data);
+
+function createEmptyCase() {
+    let c = document.createElement("div");
+    c.classList.add("empty_case");
+    return c;
 }
-function fillCoteHaut(data){
-    let cote_haut=document.getElementById("cote_haut");
-    fillContainer(cote_haut,data);
-}
-function fillCoteDroit(data){
-    let cote_droit=document.getElementById("cote_droit");
-    fillContainer(cote_droit,data);
-}
-function fillCoteGauche(data){
-    let cote_gauche=document.getElementById("cote_gauche");
-    fillContainer(cote_gauche,data);
+function randomInt(max) {
+    return Math.floor(Math.random() * (max - 1) + 1);
 }
 
-function fillContainer(container,data){
-    console.log(data);
-    for(let i=0;i<data.length;i++){
-        container.appendChild(createGameCase(data[i]));
+function avancer(p,randomInt,mapBoard){
+    let PlayerPawnImg=document.getElementById(p.pseudo);
+    console.log(p.currentCaseIndex-randomInt);
+    let startIndex=(p.currentCaseIndex-randomInt+mapBoard.size)%mapBoard.size;
+    let NextCase;
+    let NextPawnSpace;
+
+    let previousCase;
+    for(let i =1;i<=randomInt;i++){
+        setTimeout(()=>{
+            previousCase=mapBoard.get((startIndex+i-1)%mapBoard.size)[0];
+            previousCase.classList.remove("pawnOnCase"); 
+            NextCase=mapBoard.get((startIndex+i)%mapBoard.size)[0];        
+            NextCase.classList.add("pawnOnCase");
+            NextPawnSpace=NextCase.querySelector(".pawn_space");
+            NextPawnSpace.appendChild(PlayerPawnImg);
+            if(i===randomInt){
+                NextCase.classList.add("caseDescription");
+
+            }
+        },i*400);
     }
+
+    //console.log(mapBoard.get(p.currentCaseIndex)[1]);
 }
 
-export{flipCard,createLaunchGameBtn,createGameCase,fillCoteBas,fillCoteHaut,fillCoteDroit,fillCoteGauche};
+function animationPawnOnCase(tile){
+}
+export { flipCard, createLaunchGameBtn, createGameCase, CreatePawnsDiv, createEmptyCase, randomInt,avancer };

@@ -31,7 +31,7 @@
             "maison4": 750,
             "hotel": 950
         },
-        "hypotheque": 99,
+        "hypotheque": 90,
         "coutMaison": 100,
         "couleur": "#FE8B11"
     },
@@ -39,6 +39,24 @@
         "nom":"Caise Communauté",
         "type":"CaisseCommu",
         "couleur":"#62D2E8" 
+    },
+    {
+        "nom": "B2-11",
+        "type": "achetable",
+        "proprietaire": null,
+        "prix": 180,
+        "loyer": {
+            "seul": 14,
+            "monopole":28,
+            "maison1": 70,
+            "maison2": 200,
+            "maison3": 550,
+            "maison4": 750,
+            "hotel": 950
+        },
+        "hypotheque": 90,
+        "coutMaison": 100,
+        "couleur": "#FE8B11"
     },
     {
         "nom":"Cafeteria",
@@ -97,7 +115,7 @@
         "couleur":"#62D2E8" 
     },
     {
-        "nom": "B1-é",
+        "nom": "B1-2",
         "type": "achetable",
         "proprietaire": null,
         "prix": 140,

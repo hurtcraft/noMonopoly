@@ -1,4 +1,6 @@
-import {fillCoteBas, fillCoteHaut,fillCoteDroit,fillCoteGauche} from "./helper.js";
+import {initBoard,nbCaseBoard} from "./game.js";
+import { player } from "./form.js";
+import { avancer, randomInt } from "./helper.js";
 const socketScript = document.createElement("script");
 socketScript.src = "/socket.io/socket.io.js";
 document.body.appendChild(socketScript);
@@ -13,16 +15,16 @@ socketScript.onload = () => {
     let lstPlayersCard=document.getElementsByClassName("player_card");
     let roomIDContainer=document.getElementById("room_id");
     let board=document.getElementById("game_board");
-
+    let btnJouer=document.getElementById("BtnJouer");
+    let mapBoard;
     
     socket.on("sendRoomID",(receveidRoomID)=>{
-        console.log(receveidRoomID);
         roomIDContainer.innerText="Room : "+receveidRoomID;
     })
     
     socket.on("joinRoom",(players)=>{
         waitingArea.style.visibility="visible";
-        accueilCard.style.visibility="hidden";
+        accueilCard.style.display="none";
     
         for(let i = 0 ; i <players.length;i++){
             Players.push(players[i]);
@@ -31,19 +33,38 @@ socketScript.onload = () => {
         }
         
     })
-    socket.on("initGame",(gameData)=>{
-        waitingArea.style.visibility="hidden";
+    socket.on("initGame",(gameData,playersData)=>{
+        waitingArea.style.display="none";
         board.style.visibility="visible";
-        fillCoteBas(gameData.cote_bas);
-        fillCoteHaut(gameData.cote_haut);
-        //fillCoteDroit(gameData.cote_droit);
-        //fillCoteGauche(gameData.cote_gauche);
+        mapBoard=initBoard(gameData,playersData);
     })
-    
+
+    socket.on("playerPlayed",(p,randomInt)=>{
+        
+        avancer(p,randomInt,mapBoard);
+        socket.emit("nextPlayer");
+    })
+    socket.on("nextPlayer",(p)=>{
+        if(socket.id!==p.socketId){
+            btnJouer.disabled=true;
+        }
+        else{
+            btnJouer.disabled=false;
+        }
+    })
+
+
+
+    //cas a traité ici
+    socket.on("roomNotFound",(msg)=>{
+        console.log(msg);
+    })
     socket.on("roomFull",(msg)=>{
         console.log(msg);
     })
-
+    socket.on("roomAlreadyStart",(msg)=>{
+        console.log(msg);
+    })
     
     
 }

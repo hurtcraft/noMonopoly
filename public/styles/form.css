@@ -45,7 +45,7 @@ form {
     display: flex;
     align-items: center;
     width: 70%;
-    height: 70%;
+    height: 90%;
     flex-direction: column;
     background-color: blue;
     justify-content: space-around;
@@ -90,4 +90,24 @@ form button:hover{
 }
 #accueil_img{
     width: 40%;
+}
+#pawn_div{
+    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 80%;
+    height: 50%;
+    place-items: center;
+}
+.imgPawn{
+    width: 80%;
+    border: solid black 2px;
+    transition: 0.5s;
+}
+.imgPawn:hover{
+    scale: 1.1;
+    transition: 0.5s;
+}
+.currentPawn{
+    background-color: yellow;
 }
