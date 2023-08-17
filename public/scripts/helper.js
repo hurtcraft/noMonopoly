@@ -87,15 +87,38 @@ function avancer(p,randomInt,mapBoard){
             NextPawnSpace=NextCase.querySelector(".pawn_space");
             NextPawnSpace.appendChild(PlayerPawnImg);
             if(i===randomInt){
-                NextCase.classList.add("caseDescription");
-
+                let data = mapBoard.get(p.currentCaseIndex)[1];
+                setTimeout(()=>{afficherData(data)},400);
+                
             }
         },i*400);
     }
+    
+    console.log(mapBoard.get(p.currentCaseIndex)[1]);//[0]--> la div | [1]-->la data
 
-    //console.log(mapBoard.get(p.currentCaseIndex)[1]);
 }
 
-function animationPawnOnCase(tile){
+function afficherData(data){
+    const descriptionContainer=document.getElementById("descriptionCase");
+    const descriptionHeader=document.getElementById("descriptionCaseHeader");
+    const descriptionTitre=descriptionContainer.querySelector("h1");
+    const description=document.getElementById("description");
+    //traitement couleur
+    if(data.couleur!==null){
+        descriptionHeader.style.backgroundColor=data.couleur;
+    }
+    else{
+        descriptionHeader.style.display="none";
+    }
+    //traitement titre
+    descriptionTitre.innerText=data.nom;
+
+    if(data.type==="achetable"){
+        let prix=document.createTextNode(data.prix);
+        description.appendChild(prix);
+    }
+    console.log("ici");
+    descriptionContainer.style.animation="descente 1s forwards";
 }
+
 export { flipCard, createLaunchGameBtn, createGameCase, CreatePawnsDiv, createEmptyCase, randomInt,avancer };

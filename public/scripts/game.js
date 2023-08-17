@@ -11,6 +11,18 @@ randomBtn.addEventListener("click",()=>{
     resultContainer.innerText=resultRandomInt;
     socket.emit("inGame",player,resultRandomInt);
 })
+
+const acheterBtn=document.getElementById("acheterBtn");
+const JePasseBtn=document.getElementById("JePasseBtn");
+const descriptionCase=document.getElementById("descriptionCase");
+acheterBtn.addEventListener("click",()=>{
+    descriptionCase.style.animation="remonter 1s forwards";
+    console.log("jachete");
+})
+JePasseBtn.addEventListener("click",()=>{
+    descriptionCase.style.animation="remonter 1s forwards";
+    console.log("je passe");
+}) 
 function initBoard(data,playerdata) {
     const ROWS = 11;
     const COLS = 11;

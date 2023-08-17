@@ -1,6 +1,6 @@
 import {initBoard,nbCaseBoard} from "./game.js";
 import { player } from "./form.js";
-import { avancer, randomInt } from "./helper.js";
+import {  avancer, randomInt } from "./helper.js";
 const socketScript = document.createElement("script");
 socketScript.src = "/socket.io/socket.io.js";
 document.body.appendChild(socketScript);
@@ -39,9 +39,24 @@ socketScript.onload = () => {
         mapBoard=initBoard(gameData,playersData);
     })
 
-    socket.on("playerPlayed",(p,randomInt)=>{
+    socket.on("playerPlayed",async (p,randomInt)=>{
+        const acheterBtn=document.getElementById("acheterBtn");
+        const JePasseBtn=document.getElementById("JePasseBtn");
+        if(p.socketId!==socket.id){
+            //desactive les 2 btn;
+            acheterBtn.style.visibility="hidden";
+            JePasseBtn.style.visibility="hidden";
+
+        }
+        else{
+            //active les 2 btn;
+            acheterBtn.style.visibility="visible";
+            JePasseBtn.style.visibility="visible";
+        }
+        avancer(p,randomInt,mapBoard); // data contenue dans la case final
         
-        avancer(p,randomInt,mapBoard);
+        //setTimeout(()=>{afficherData(data)});
+
         socket.emit("nextPlayer");
     })
     socket.on("nextPlayer",(p)=>{
